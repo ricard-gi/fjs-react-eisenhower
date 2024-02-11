@@ -16,6 +16,8 @@ const initialItems = [
 { nom: "maduixa", caixa: "caixa3" },
 ]
 
+const CAIXES = ["caixa1", "caixa2", "caixa3", "caixa4"]
+
 
 const Item = ({ name }) => {
   const [{ isDragging }, drag] = useDrag({
@@ -67,7 +69,7 @@ const Box = ({ children, title, mouItem }) => {
 const Test = () => {
 
     const [items, setItems] = useState(initialItems)
-    const caixes = Array.from(new Set(items.map(e=>e.caixa)))
+    //const caixes = Array.from(new Set(items.map(e=>e.caixa)))
 
     const mouItem = (item, caixa) => {
         const nousItems = items.map(it => {
@@ -84,10 +86,8 @@ const Test = () => {
   return (
     <DndProvider backend={HTML5Backend}>
         <div className="grid grid-cols-2">
-
-     
         {
-            caixes.map(caixa => (
+            CAIXES.map(caixa => (
                 <Box key={caixa} title = {caixa} mouItem = {mouItem}  >
                     {
                         items.filter(e => e.caixa==caixa).map(e => <Item key={e.nom} name={e.nom}/>)
