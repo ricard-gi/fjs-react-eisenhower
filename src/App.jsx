@@ -15,6 +15,7 @@ function App() {
 
         <div className="flex justify-between mb-10">
           <Link className="border px-4 py-2 bg-blue-700 text-white" to="/" >Inici</Link>
+          <Link className="border px-4 py-2 bg-blue-700 text-white" to="/test">Test</Link>
           <Link className="border px-4 py-2 bg-blue-700 text-white" to="/matrix">Matrix</Link>
         </div>
 
