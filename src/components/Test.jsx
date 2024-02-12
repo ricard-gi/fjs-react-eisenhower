@@ -7,7 +7,7 @@ import './Test.css';
 
 const ItemType = 'ITEM';
 
-const initialItems = [
+const ELEMENTS = [
 { nom: "poma", caixa: "caixa1" },
 { nom: "pera", caixa: "caixa1" },
 { nom: "patata", caixa: "caixa2" },
@@ -16,7 +16,7 @@ const initialItems = [
 { nom: "maduixa", caixa: "caixa2" },
 ]
 
-const CAIXES = ["caixa1", "caixa2"]
+const CAIXES = ["caixa1", "caixa2", "caixa3"]
 
 
 const Item = ({ name }) => {
@@ -31,7 +31,7 @@ const Item = ({ name }) => {
   return (
     <div
       ref={drag}
-      className="border p-4 bg-red-200 mb-4"
+      className="border p-4 bg-red-500 mb-4"
       style={{ opacity: isDragging ? 0.5 : 1 }}
     >
       {name}
@@ -66,7 +66,7 @@ const Box = ({ children, title, mouItem }) => {
 
 const Test = () => {
 
-    const [items, setItems] = useState(initialItems)
+    const [items, setItems] = useState(ELEMENTS)
 
     // funció que "Mou" un element d'una caixa a l'altra
     const mouItem = (item, caixa) => {
