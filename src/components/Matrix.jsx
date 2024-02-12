@@ -11,9 +11,9 @@ const ELEMENTS = [
     { nom: "poma", caixa: "caixa1" },
     { nom: "pera", caixa: "caixa1" },
     { nom: "patata", caixa: "caixa2" },
-    { nom: "ceba", caixa: "caixa2" },
-    { nom: "préssec", caixa: "caixa1" },
-    { nom: "maduixa", caixa: "caixa2" },
+    { nom: "ceba", caixa: "caixa4" },
+    { nom: "préssec", caixa: "caixa3" },
+    { nom: "maduixa", caixa: "caixa3" },
 ]
 
 const CAIXES = [
@@ -33,10 +33,16 @@ const Item = ({ name, caixa, eliminaItem }) => {
         }),
     });
 
+    let color;
+    if (caixa=="caixa1") color="red"
+    if (caixa=="caixa2") color="blue"
+    if (caixa=="caixa3") color="pink"
+    if (caixa=="caixa4") color="green"
+
     return (
         <div
             ref={drag}
-            className="border p-4 bg-red-500 mb-4 flex justify-between"
+            className={`border p-4 bg-${color}-500 mb-4 flex justify-between`}
             style={{ opacity: isDragging ? 0.5 : 1 }}
         >
             {name} {caixa == "caixa4" && <button className="border bg-white text-black px-2 tex-2xl" onClick={() => eliminaItem(name)}>X</button>}
